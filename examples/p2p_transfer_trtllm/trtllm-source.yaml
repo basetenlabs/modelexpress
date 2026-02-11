@@ -180,6 +180,10 @@ spec:
               mountPath: /dev/shm
             - name: model-cache
               mountPath: /models
+            - name: model-cache
+              mountPath: /models
+            - name: dev-inf
+              mountPath: /dev/infiniband
 
       volumes:
         - name: shm
@@ -189,3 +193,6 @@ spec:
         - name: model-cache
           hostPath:
             path: /scratch/mex/model-storage
+        - name: dev-inf
+          hostPath:
+            path: /dev/infiniband
