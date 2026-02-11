@@ -75,6 +75,10 @@ spec:
               value: "get_zcopy"
             - name: UCX_RNDV_THRESH
               value: "0"
+            - name: UCX_LOG_LEVEL
+              value: "debug"
+            - name: NIXL_LOG_LEVEL
+              value: "debug"
             # Pod network info for NIXL
             - name: POD_IP
               valueFrom:
