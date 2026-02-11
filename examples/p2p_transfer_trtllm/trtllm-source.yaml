@@ -99,7 +99,7 @@ spec:
               cd /tmp/mex
               git switch kavink/p2p_nixl_transfers_trtllm
               mkdir -p /opt/trtllm-code
-              cp -r modelexpress_client/python/modelexpress /opt/trtllm-code
+              cp -r modelexpress_client/python/modelexpress/* /opt/trtllm-code
 
               DEST="/usr/local/lib/python3.12/dist-packages/modelexpress"
               cp /opt/trtllm-code/trtllm_loader.py "${DEST}/trtllm_loader.py"
