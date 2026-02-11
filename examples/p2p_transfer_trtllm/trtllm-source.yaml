@@ -93,6 +93,7 @@ spec:
               set -ex
               
               # Copy trtllm_loader.py and updated p2p_pb2.py from ConfigMap
+              apt update && apt install -y git
               git clone https://github.com/ai-dynamo/modelexpress.git /tmp/mex
               cd /tmp/mex
               git switch kavink/p2p_nixl_transfers_trtllm
