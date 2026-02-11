@@ -28,7 +28,7 @@ metadata:
   labels:
     app: trtllm-source
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: trtllm-source
@@ -70,7 +70,7 @@ spec:
               value: "DEBUG"
             # UCX transport settings for GPUDirect RDMA (same as vLLM)
             - name: UCX_TLS
-              value: "rc_x,rc,dc_x,dc,cuda_copy"
+              value: "rc_x,rc,dc_x,dc,cuda_copy,cuda_ipc"
             - name: UCX_RNDV_SCHEME
               value: "get_zcopy"
             - name: UCX_RNDV_THRESH
