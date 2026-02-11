@@ -65,9 +65,9 @@ spec:
               value: "modelexpress-server:8001"
             # Logging
             - name: NIXL_LOG_LEVEL
-              value: "INFO"
+              value: "DEBUG"
             - name: UCX_LOG_LEVEL
-              value: "WARN"
+              value: "DEBUG"
             # UCX transport settings for GPUDirect RDMA (same as vLLM)
             - name: UCX_TLS
               value: "rc_x,rc,dc_x,dc,cuda_copy"
@@ -75,10 +75,6 @@ spec:
               value: "get_zcopy"
             - name: UCX_RNDV_THRESH
               value: "0"
-            - name: UCX_LOG_LEVEL
-              value: "debug"
-            - name: NIXL_LOG_LEVEL
-              value: "debug"
             # Pod network info for NIXL
             - name: POD_IP
               valueFrom:
