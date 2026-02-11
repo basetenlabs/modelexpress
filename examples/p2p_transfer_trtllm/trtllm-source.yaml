@@ -168,7 +168,7 @@ spec:
           resources:
             limits:
               nvidia.com/gpu: "4"
-            caims:
+            claims:
             - name: compute-domain-channel
             requests:
               nvidia.com/gpu: "4"
