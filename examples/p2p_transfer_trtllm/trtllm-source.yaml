@@ -69,6 +69,8 @@ spec:
             # UCX transport settings for GPUDirect RDMA (same as vLLM)
             - name: UCX_TLS
               value: "rc_x,rc,dc_x,dc,cuda_copy,cuda_ipc,self,sm"
+            - name: UCX_NET_DEVICES
+              value: "mlx5_0,mlx5_1,mlx5_4,mlx5_5"
               # value: "rc_x,rc,dc_x,dc,cuda_copy,cuda_ipc"
             # - name: UCX_RNDV_SCHEME
             #   value: "get_zcopy"
@@ -106,7 +108,7 @@ spec:
               cp /opt/trtllm-code/trtllm_loader.py "${DEST}/trtllm_loader.py"
               cp /opt/trtllm-code/p2p_pb2.py "${DEST}/p2p_pb2.py"
               
-              sleep infinity
+              # sleep infinity
               # Update __init__.py to export trtllm classes
               echo "from .trtllm_loader import MxTrtllmSourcePublisher, MxTrtllmTargetLoader" >> "${DEST}/__init__.py"
               
