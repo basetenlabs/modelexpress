@@ -97,7 +97,6 @@ spec:
               
               # Copy trtllm_loader.py and updated p2p_pb2.py from ConfigMap
               apt update && apt install -y git
-              sleep infinity
               git clone https://github.com/ai-dynamo/modelexpress.git /tmp/mex
               cd /tmp/mex
               git switch kavink/p2p_nixl_transfers_trtllm
@@ -169,7 +168,7 @@ spec:
           resources:
             limits:
               nvidia.com/gpu: "4"
-            claims:
+            caims:
             - name: compute-domain-channel
             requests:
               nvidia.com/gpu: "4"
