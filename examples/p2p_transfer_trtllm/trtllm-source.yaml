@@ -38,8 +38,8 @@ spec:
         app: trtllm-source
     spec:
       resourceClaims:
-        - name: compute-domain-channel
-          resourceClaimTemplateName: trt-test-compute-domain-channel
+      - name: compute-domain-channel
+        resourceClaimTemplateName: trt-test-compute-domain-channel
       containers:
         - name: trtllm-source
           # Use same working image as vLLM P2P (has NIXL 0.8.0 with working UCX)
