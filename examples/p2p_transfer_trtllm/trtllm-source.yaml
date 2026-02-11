@@ -54,7 +54,7 @@ spec:
             - name: HF_MODEL_PATH
               value: "/models"
             - name: TP_SIZE
-              value: "8"
+              value: "4"
             - name: DTYPE
               value: "bfloat16"
             # ModelExpress server address
@@ -93,6 +93,10 @@ spec:
               set -ex
               
               # Copy trtllm_loader.py and updated p2p_pb2.py from ConfigMap
+              git clone https://github.com/NVIDIA/TensorRT-LLM.git /opt/trtllm-code
+              cd /opt/trtllm-code
+              git switch release/1.2.0rc6.post1
+
               DEST="/usr/local/lib/python3.12/dist-packages/modelexpress"
               cp /opt/trtllm-code/trtllm_loader.py "${DEST}/trtllm_loader.py"
               cp /opt/trtllm-code/p2p_pb2.py "${DEST}/p2p_pb2.py"
@@ -157,11 +161,11 @@ spec:
               "
           resources:
             limits:
-              nvidia.com/gpu: "8"
-              rdma/ib: "8"
+              nvidia.com/gpu: "4"
+              rdma/ib: "4"
             requests:
-              nvidia.com/gpu: "8"
-              rdma/ib: "8"
+              nvidia.com/gpu: "4"
+              rdma/ib: "4"
               memory: "200Gi"
               cpu: "16"
           volumeMounts:
@@ -169,8 +173,6 @@ spec:
               mountPath: /dev/shm
             - name: model-cache
               mountPath: /models
-            - name: trtllm-code
-              mountPath: /opt/trtllm-code
 
       volumes:
         - name: shm
@@ -178,10 +180,7 @@ spec:
             medium: Memory
             sizeLimit: 64Gi
         - name: model-cache
-          persistentVolumeClaim:
-            claimName: model-weights-storage
-        - name: trtllm-code
-          configMap:
-            name: trtllm-loader-code
+          hostPath:
+            path: /scratch/mex/model-storage
       imagePullSecrets:
         - name: nvcr-imagepullsecret
