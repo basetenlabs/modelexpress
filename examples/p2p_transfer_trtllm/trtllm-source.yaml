@@ -40,7 +40,7 @@ spec:
       containers:
         - name: trtllm-source
           # Use same working image as vLLM P2P (has NIXL 0.8.0 with working UCX)
-          image: nvcr.io/nvidian/dynamo-dev/modelexpress-p2p-client:v0.1.0-baseline
+          image: baseten/modelexpress-trtllm-client
           imagePullPolicy: Always
           # Needed for GPUDirect RDMA to work
           securityContext:
@@ -180,5 +180,3 @@ spec:
         - name: model-cache
           hostPath:
             path: /scratch/mex/model-storage
-      imagePullSecrets:
-        - name: nvcr-imagepullsecret
