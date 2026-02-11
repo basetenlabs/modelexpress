@@ -162,10 +162,8 @@ spec:
           resources:
             limits:
               nvidia.com/gpu: "4"
-              rdma/ib: "4"
             requests:
               nvidia.com/gpu: "4"
-              rdma/ib: "4"
               memory: "200Gi"
               cpu: "16"
           volumeMounts:
