@@ -68,7 +68,7 @@ spec:
               value: "DEBUG"
             # UCX transport settings for GPUDirect RDMA (same as vLLM)
             - name: UCX_TLS
-              value: "cuda_ipc"
+              value: "rc_x,rc,dc_x,dc,cuda_copy,cuda_ipc,self,sm"
               # value: "rc_x,rc,dc_x,dc,cuda_copy,cuda_ipc"
             # - name: UCX_RNDV_SCHEME
             #   value: "get_zcopy"
