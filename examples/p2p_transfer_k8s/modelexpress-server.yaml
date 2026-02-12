@@ -63,7 +63,7 @@ spec:
 
       containers:
         - name: modelexpress-server
-          image: nvcr.io/nvidian/dynamo-dev/modelexpress-server:server-u64fix-1768535139
+          image: baseten/model-express
           ports:
             - containerPort: 8001
           env:
